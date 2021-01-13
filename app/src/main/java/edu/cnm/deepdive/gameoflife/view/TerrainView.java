@@ -17,6 +17,7 @@ package edu.cnm.deepdive.gameoflife.view;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Rect;
@@ -38,7 +39,7 @@ public class TerrainView extends View {
   private static final float DEFAULT_SATURATION = 1;
   private static final float DEFAULT_NEW_BRIGHTNESS = 1;
   private static final float DEFAULT_OLD_BRIGHTNESS = 0.6f;
-  private static final long UPDATE_INTERVAL = 10;
+  private static final long UPDATE_INTERVAL = 20;
 
   private final Rect source;
   private final Rect dest;
@@ -131,7 +132,7 @@ public class TerrainView extends View {
     if (terrain != null) {
       int size = terrain.getSize();
       cells = new byte[size][size];
-      bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.RGB_565);
+      bitmap = Bitmap.createBitmap(size, size, Config.RGB_565);
       source.set(0, 0, size, size);
     } else {
       bitmap = null;

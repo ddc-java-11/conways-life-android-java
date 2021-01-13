@@ -20,8 +20,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 import edu.cnm.deepdive.gameoflife.R;
+import edu.cnm.deepdive.gameoflife.databinding.ActivityMainBinding;
 import edu.cnm.deepdive.gameoflife.viewmodel.MainViewModel;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,7 +42,9 @@ public class MainActivity extends AppCompatActivity {
         invalidateOptionsMenu();
       }
     });
-    // TODO Setup bindings.
+    ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+    binding.setLifecycleOwner(this);
+    binding.setViewModel(viewModel);
   }
 
   @Override
